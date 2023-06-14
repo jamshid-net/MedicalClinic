@@ -1,0 +1,103 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Current clinic information</h5>
+        
+    </div>
+    <ul class="list-group list-group-flush">
+        
+        <li class="list-group-item">Name: name</li>
+        <li class="list-group-item">Address: address</li>
+        <li class="list-group-item">Location: location</li>
+        <li class="list-group-item">Email: Email</li>
+        <li class="list-group-item">Phone: phone</li> 
+        <li class="list-group-item"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update_clinic_information" data-update="id">Update</button></li>
+    </ul>
+</div>
+
+
+public Guid Id { get; set; }
+        public Uri Link { get; set; }
+        public Guid NetworkTypeId { get; set; }
+        public NetworkType? NetworkType { get; set; }
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Current clinic social network</h5>
+
+    </div>
+    <ul class="list-group list-group-flush">
+
+        <li class="list-group-item">Link: Link</li>
+        <li class="list-group-item">Address: address</li>
+        <li class="list-group-item">Location: location</li>
+        <li class="list-group-item">Email: Email</li>
+        <li class="list-group-item">Phone: phone</li>
+        <li class="list-group-item"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update_clinic_information" data-update="id">Update</button></li>
+    </ul>
+</div>
+
+
+
+<!--Update Informatin start-->
+<div class="modal fade" id="update_clinic_information" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Doctor!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="GOTOACTION" method="post">
+                    <div class="mb-3">
+                        <label for="Id" class="col-form-label">Id:</label>
+                        <input type="text" readonly name="Id" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Name" class="col-form-label">Clinic name:</label>
+                        <input type="text" name="Name" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    </div>
+                    <div class="mb-3">
+                     <label for="Email" class="col-form-label">Email:</label>
+                     <input type="email"  name="Email" class="form-control">
+                     </div>
+                    <div class="mb-3">
+                        <label for="Phone">Enter a phone number:</label><br><br>
+                        <input type="tel" class="form-control" id="phone" name="Phone" placeholder="123-45-678" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        //update clinic  script
+        var updateClinic = document.getElementById('update_clinic_information')
+        updateClinic.addEventListener('show.bs.modal', function (event) {
+
+            var button = event.relatedTarget
+
+            var recipient = button.getAttribute('data-bs-whatever')
+
+            var modalTitle = updateClinic.querySelector('.modal-title')
+            var modalBodyInput = updateClinic.querySelector('.modal-body input')
+
+            modalTitle.textContent = 'Edit for clinic ' + recipient
+            modalBodyInput.value = recipient
+        })
+       //update clinic  script end
+    </script>
+}

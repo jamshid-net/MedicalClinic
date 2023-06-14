@@ -1,0 +1,248 @@
+﻿@{
+
+}
+<div class="content">
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title">Doctors</h4>
+        </div>
+        <div class="col-sm-8 col-9 text-right m-b-20">
+            <a role="button" data-bs-toggle="modal" data-bs-target="#create_doctor" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
+        </div>
+    </div>
+    <div class="row doctor-grid">
+
+        <!--Doctors foreach-->
+        <div class="col-md-4 col-sm-4  col-lg-3">
+            <div class="profile-widget">
+                <div class="doctor-img">
+                    <a class="avatar" href="profile.html"><img alt="" src="~/img/doctor-thumb-03.jpg"></a>
+                </div>
+                <div class="dropdown profile-action">
+                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="edit-doctor.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_doctor"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                    </div>
+                </div>
+                <h4 class="doctor-name text-ellipsis"><a href="profile.html">Cristina Groves</a></h4>
+                <div class="doc-prof">Gynecologist</div>
+                <div class="user-country">
+                    <i class="fa fa-map-marker"></i> United States, San Francisco
+                </div>
+                <div class="col d-flex justify-content-center ">
+                    <button class="btn btn-secondary me-1" data-bs-toggle="modal" data-remove="BUYOGA FOREACHDAGI ID YOZILADI DATA-REMOVEGA" data-bs-target="#delete_doctor">Delete</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-update="BUYOGA FOREACHDAGI ID YOZILADI DATA-REMOVEGA" data-bs-target="#update_doctor">Edit</button>
+            </div>
+            </div>
+
+        </div>
+        <!--Doctors foreach end-->
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="see-all">
+                <a class="see-all-btn" href="javascript:void(0);">Load More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--DELETE MODAL start -->
+<div class="modal fade" id="delete_doctor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="ACTION" method="post">
+                    <div class="mb-3">
+                        <label for="DoctorId" class="col-form-label">Id:</label>
+                        <input type="text" name="DoctorId" readonly class="form-control" id="recipient-name">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="cancelremove" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Yes remove it!</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--DELETE MODAL END-->
+
+<!--UPDATE MODAL START-->
+<div class="modal fade" id="update_doctor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Doctor!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/User/Update" method="post">
+                    <div class="mb-3">
+                        <label for="DoctorId" class="col-form-label">Id:</label>
+                        <input type="text" readonly name="DoctorId" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Name" class="col-form-label">Doctor name:</label>
+                        <input type="text" name="Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Phone">Enter a phone number:</label><br><br>
+                        <input type="tel" class="form-control" id="phone" name="Phone" placeholder="123-45-678" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="DateOfBirth" class="col-form-label">DateOfBirth:</label>
+                        <input type="date" name="DateOfBirth" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Speciality" class="col-form-label">Speciality:</label>
+                        <input type="text" name="Speciality" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Picture</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" value="VALUE1" type="radio" name="Gender" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="Gender">
+                                Men
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="VALUE2" type="radio" name="Gender" id="flexRadioDefault1">
+                            <label class="form-check-label" for="Gender">
+                                Female
+                            </label>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--UPDATE MODAL END-->
+
+
+<!--Create modal start-->
+
+<div class="modal fade" id="create_doctor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create doctor!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/User/Update" method="post">
+                   
+                    <div class="mb-3">
+                        <label for="Name" class="col-form-label">Doctor name:</label>
+                        <input type="text" name="Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Phone">Enter a phone number:</label><br><br>
+                        <input type="tel" class="form-control" id="phone" name="Phone" placeholder="123-45-678" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="DateOfBirth" class="col-form-label">DateOfBirth:</label>
+                        <input type="date" name="DateOfBirth" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Speciality" class="col-form-label">Speciality:</label>
+                        <input type="text" name="Speciality" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Picture</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" value="VALUE1" type="radio" name="Gender" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="Gender">
+                                Men
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="VALUE2" type="radio" name="Gender" id="flexRadioDefault1">
+                            <label class="form-check-label" for="Gender">
+                                Female
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Create</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Create modal end-->
+
+@section Scripts{
+    <script>
+        //delete doctor  script
+        var removeModal = document.getElementById('delete_doctor')
+        removeModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget
+            var recipient = button.getAttribute('data-remove')
+
+            var modalTitle = removeModal.querySelector('.modal-title')
+
+            var modalBodyInput = removeModal.querySelector('.modal-body input')
+
+            modalTitle.textContent = 'Remove user ' + recipient
+            modalBodyInput.value = recipient
+
+        })
+        //delete doctor end  script
+
+        //update doctor  script
+        var updatedoctor = document.getElementById('updateModal')
+        updatedoctor.addEventListener('show.bs.modal', function (event) {
+
+            var button = event.relatedTarget
+
+            var recipient = button.getAttribute('data-bs-whatever')
+
+            var modalTitle = updatedoctor.querySelector('.modal-title')
+            var modalBodyInput = updatedoctor.querySelector('.modal-body input')
+
+            modalTitle.textContent = 'Edit for user ' + recipient
+            modalBodyInput.value = recipient
+        })
+        //update doctor  script end
+
+        //create doctor  script
+        var updatedoctor = document.getElementById('create')
+        updatedoctor.addEventListener('show.bs.modal', function (event) {
+        })
+       //create doctor  script end
+    </script>
+
+
+}
