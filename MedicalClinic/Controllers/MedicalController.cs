@@ -54,8 +54,13 @@ namespace MedicalClinic.Controllers
         [HttpPost]
         public IActionResult SendMessage([FromForm] TelegramMessageModel model)
         {
-            _telegramService.SendMessage(model);
-            return NoContent();
+            if (ModelState.IsValid)
+            {
+                _telegramService.SendMessage(model);
+                return NoContent();
+            }
+            return View("Contact");
+            
         }
     }
 }

@@ -57,7 +57,7 @@
                     <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
                     
                     <form method="post" asp-action="SendMessage" asp-controller="Medical">
-                        <div asp-validation-summary="ModelOnly"></div>
+                        @*<div asp-validation-summary="ModelOnly"></div>*@
                         <div class="row g-3" >
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input asp-for="Email" class="form-control" id="email" placeholder="Your Email">
+                                    <input asp-for="Email" class="form-control" placeholder="Your Email">
                                     <span asp-validation-for="Email" class="text-danger"></span> 
                                         
                                     <label asp-for="Email">Your Email</label>

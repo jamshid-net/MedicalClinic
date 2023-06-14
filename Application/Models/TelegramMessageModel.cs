@@ -4,7 +4,7 @@ namespace Application.Models;
 
 public class TelegramMessageModel
 {
-    [MaxLength(50, ErrorMessage = "Uzuuuun bo`ldi")]
+    [MaxLength(5, ErrorMessage = "Uzuuuun bo`ldi")]
     [Required(ErrorMessage = "Buni kiritish shart")]
     public string Name { get; set; }
 
@@ -18,6 +18,7 @@ public class TelegramMessageModel
     public string Subject { get; set; }
 
     [Required]
+    [MaxLength(10)]
     public string Message { get; set; }
 
     public override string ToString()

@@ -1,4 +1,7 @@
 using Infrastructure;
+using Infrastructure.DataAccess;
+using Microsoft.AspNetCore.Identity;
+
 namespace MedicalClinic
 {
     public class Program
@@ -9,8 +12,8 @@ namespace MedicalClinic
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddInfrastructureServices();
-
+            builder.Services.AddInfrastructureServices(builder.Configuration);
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ClinicDbContext>();
             var app = builder.Build();
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
